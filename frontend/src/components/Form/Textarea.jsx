@@ -10,18 +10,13 @@ function Textarea({ name, label, required = true }) {
   } = useFormContext();
 
   return (
-    <Field.Root
-      invalid={!!errors[name]}
-      required={required}>
+    <Field.Root invalid={!!errors[name]} required={required}>
       <Field.Label htmlFor={id}>
         {label}
 
         <Field.RequiredIndicator />
       </Field.Label>
-      <ChakraTextarea
-        id={id}
-        {...register(name)}
-      />
+      <ChakraTextarea id={id} {...register(name)} />
       <Field.ErrorText>
         <Field.ErrorIcon />
         {errors[name]?.message}

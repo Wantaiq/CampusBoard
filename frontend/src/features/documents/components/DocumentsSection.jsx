@@ -12,14 +12,7 @@ function DocumentsSection({ projectId }) {
   }, [fetchDocuments]);
 
   if (loading) {
-    return (
-      <Skeleton
-        variant="shine"
-        w="100%"
-        aspectRatio="wide"
-        borderRadius="md"
-      />
-    );
+    return <Skeleton variant="shine" w="100%" aspectRatio="wide" borderRadius="md" />;
   }
 
   if (error) {
@@ -39,18 +32,14 @@ function DocumentsSection({ projectId }) {
   return (
     <Card.Root w="2xs">
       <Card.Header>
-        <Card.Title
-          fontSize="lg"
-          as="h2">
+        <Card.Title fontSize="lg" as="h2">
           Documents
         </Card.Title>
       </Card.Header>
       {documents.length ? (
         <Box as="ul">
           {documents.map((document) => (
-            <Box
-              key={`document-${document.id}`}
-              as="li">
+            <Box key={`document-${document.id}`} as="li">
               <Card.Body key={`document-${document.id}`}>
                 <DocumentCard document={document} />
               </Card.Body>

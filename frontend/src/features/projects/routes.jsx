@@ -7,12 +7,7 @@ const projectRoutes = [
     children: [
       {
         index: true,
-        element: (
-          <Navigate
-            to="/"
-            replace
-          />
-        ),
+        element: <Navigate to="/" replace />,
       },
       {
         path: ':id',

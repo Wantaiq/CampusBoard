@@ -3,13 +3,9 @@ import { NavLink } from 'react-router';
 
 function ProjectsList({ projects }) {
   return (
-    <List.Root
-      unstyled
-      overflow="hidden">
+    <List.Root unstyled overflow="hidden">
       {projects.map((project) => (
-        <List.Item
-          key={project.id}
-          py="1">
+        <List.Item key={project.id} py="1">
           <Button
             minW="full"
             maxW="full"
@@ -20,7 +16,8 @@ function ProjectsList({ projects }) {
             justifyContent="start"
             variant="ghost"
             fontWeight="semibold"
-            _currentPage={{ colorPalette: 'teal', bg: 'teal.100' }}>
+            _currentPage={{ colorPalette: 'teal', bg: 'teal.100' }}
+          >
             <NavLink to={`projects/${project.id}`}>{project.name}</NavLink>
           </Button>
         </List.Item>

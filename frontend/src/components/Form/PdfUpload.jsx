@@ -8,9 +8,7 @@ function PdfUpload({ name, required = true }) {
   } = useFormContext();
 
   return (
-    <Field.Root
-      invalid={!!errors[name]}
-      required={required}>
+    <Field.Root invalid={!!errors[name]} required={required}>
       <Field.Label>
         Upload document <Field.RequiredIndicator />
       </Field.Label>
@@ -28,7 +26,8 @@ function PdfUpload({ name, required = true }) {
             value={field.value ? [field.value] : []}
             onFileChange={(e) => {
               field.onChange(e.acceptedFiles[0] || null);
-            }}>
+            }}
+          >
             <FileUpload.HiddenInput />
             <FileUpload.Dropzone>
               <FileUpload.DropzoneContent>
@@ -36,9 +35,7 @@ function PdfUpload({ name, required = true }) {
                 <Box color="fg.muted">.pdf up to 5MB</Box>
               </FileUpload.DropzoneContent>
               <FileUpload.Trigger asChild>
-                <Button
-                  variant="outline"
-                  size="sm">
+                <Button variant="outline" size="sm">
                   Upload file
                 </Button>
               </FileUpload.Trigger>{' '}
@@ -47,10 +44,7 @@ function PdfUpload({ name, required = true }) {
               <FileUpload.Context>
                 {({ acceptedFiles }) =>
                   acceptedFiles.map((file) => (
-                    <FileUpload.Item
-                      w="fit-content"
-                      key={file.name}
-                      file={file}>
+                    <FileUpload.Item w="fit-content" key={file.name} file={file}>
                       <FileUpload.ItemPreview />
                       <FileUpload.ItemName />
                       <FileUpload.ItemSizeText />

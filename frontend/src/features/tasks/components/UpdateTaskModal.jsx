@@ -6,13 +6,9 @@ function UpdateTaskModal({ task, participants }) {
   const { updateTask } = useTask(task.id);
 
   return (
-    <Dialog.Root
-      placement="center"
-      motionPreset="slide-in-top">
+    <Dialog.Root placement="center" motionPreset="slide-in-top">
       <Dialog.Trigger asChild>
-        <Button
-          size="sm"
-          variant="outline">
+        <Button size="sm" variant="outline">
           Edit
         </Button>
       </Dialog.Trigger>

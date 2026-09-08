@@ -42,9 +42,7 @@ function TasksSection({ projectId }) {
   return (
     <Card.Root w={{ md: '4xl', base: 'xs' }}>
       <Card.Header>
-        <Card.Title
-          fontSize="lg"
-          as="h2">
+        <Card.Title fontSize="lg" as="h2">
           Tasks
         </Card.Title>
       </Card.Header>
@@ -52,14 +50,9 @@ function TasksSection({ projectId }) {
         <Box as="ul">
           {tasks.map((task) => {
             return (
-              <Box
-                key={`task-${task.id}`}
-                as="li">
+              <Box key={`task-${task.id}`} as="li">
                 <Card.Body>
-                  <TaskCard
-                    task={task}
-                    participants={participants}
-                  />
+                  <TaskCard task={task} participants={participants} />
                 </Card.Body>
                 <Separator />
               </Box>
@@ -68,10 +61,7 @@ function TasksSection({ projectId }) {
         </Box>
       ) : (
         <Card.Body>
-          <Flex
-            flexDir="column"
-            alignItems="start"
-            gap="4">
+          <Flex flexDir="column" alignItems="start" gap="4">
             <Text>You don't have any tasks yet. </Text>
             <CreateTaskModal projectId={projectId} />
           </Flex>

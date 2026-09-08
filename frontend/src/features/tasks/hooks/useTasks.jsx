@@ -2,8 +2,7 @@ import { useCallback } from 'react';
 import useTasksStore from './useTasksStore';
 
 function useTasks(projectId) {
-  const { tasks, fetchProjectTasks, loading, error, createTask } =
-    useTasksStore();
+  const { tasks, fetchProjectTasks, loading, error, createTask } = useTasksStore();
 
   const fetchTasks = useCallback(() => {
     fetchProjectTasks({ projectId });

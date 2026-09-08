@@ -10,8 +10,7 @@ function useTask(id) {
     loading,
     error,
     deleteTask: () => deleteTask({ projectId: task.project_id, taskId: id }),
-    updateTask: (data) =>
-      updateTask({ taskId: id, projectId: task.project_id, ...data }),
+    updateTask: (data) => updateTask({ taskId: id, projectId: task.project_id, ...data }),
   };
 }
 

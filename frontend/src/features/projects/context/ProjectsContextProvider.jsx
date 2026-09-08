@@ -67,7 +67,8 @@ function ProjectsProvider({ children }) {
         createProject,
         deleteProject,
         fetchMyProjects,
-      }}>
+      }}
+    >
       {children}
     </ProjectContext.Provider>
   );

@@ -19,12 +19,7 @@ function AuthLayout() {
     );
   }
   if (!user || authError) {
-    return (
-      <Navigate
-        to="/auth/login"
-        replace
-      />
-    );
+    return <Navigate to="/auth/login" replace />;
   }
 
   return <Outlet />;

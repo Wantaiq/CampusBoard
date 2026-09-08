@@ -8,9 +8,7 @@ function Calendar({ name, label, minDate, required = true }) {
   } = useFormContext();
 
   return (
-    <Field.Root
-      required={required}
-      invalid={!!errors[name]}>
+    <Field.Root required={required} invalid={!!errors[name]}>
       <Field.Label id={`calendar-${name}`}>
         {label}
         <Field.RequiredIndicator />
@@ -32,7 +30,8 @@ function Calendar({ name, label, minDate, required = true }) {
             min={minDate ? parseDate(minDate) : undefined}
             onValueChange={({ value }) => {
               field.onChange(value[0]?.toString() ?? '');
-            }}>
+            }}
+          >
             <DatePicker.Content unstyled>
               <DatePicker.View view="day">
                 <DatePicker.Header />

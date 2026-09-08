@@ -41,9 +41,7 @@ function tasksReducer(state, action) {
       return {
         ...state,
         loading: false,
-        tasks: state.tasks.map((task) =>
-          task.id === action.payload.id ? action.payload : task,
-        ),
+        tasks: state.tasks.map((task) => (task.id === action.payload.id ? action.payload : task)),
         error: null,
       };
 

@@ -1,9 +1,4 @@
-import {
-  Field,
-  Portal,
-  Select as ChakraSelect,
-  createListCollection,
-} from '@chakra-ui/react';
+import { Field, Portal, Select as ChakraSelect, createListCollection } from '@chakra-ui/react';
 import { Controller, useFormContext } from 'react-hook-form';
 
 function Select({ items, name, label, placeholder, required = true }) {
@@ -21,9 +16,7 @@ function Select({ items, name, label, placeholder, required = true }) {
       control={control}
       name={name}
       render={({ field }) => (
-        <Field.Root
-          invalid={!!errors[name]}
-          required={required}>
+        <Field.Root invalid={!!errors[name]} required={required}>
           <Field.Label>
             {label} <Field.RequiredIndicator />
           </Field.Label>
@@ -34,7 +27,8 @@ function Select({ items, name, label, placeholder, required = true }) {
               field.onChange(value[0] || '');
             }}
             onInteractOutside={() => field.onBlur()}
-            collection={collection}>
+            collection={collection}
+          >
             <ChakraSelect.HiddenSelect />
             <ChakraSelect.Control>
               <ChakraSelect.Trigger>
@@ -48,9 +42,7 @@ function Select({ items, name, label, placeholder, required = true }) {
               <ChakraSelect.Positioner>
                 <ChakraSelect.Content>
                   {collection.items.map((item) => (
-                    <ChakraSelect.Item
-                      item={item}
-                      key={item.value}>
+                    <ChakraSelect.Item item={item} key={item.value}>
                       {item.label}
                       <ChakraSelect.ItemIndicator />
                     </ChakraSelect.Item>

@@ -33,9 +33,7 @@ function projectsReducer(state, action) {
       return {
         ...state,
         loading: false,
-        projects: state.projects.filter(
-          (project) => project.id !== action.payload,
-        ),
+        projects: state.projects.filter((project) => project.id !== action.payload),
         error: null,
       };
 

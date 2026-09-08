@@ -12,15 +12,8 @@ function ProjectPage() {
   const { project, loading, error } = useProject(id);
 
   return (
-    <Box
-      maxH="100dvh"
-      minH="100dvh"
-      overflowY="auto"
-      scrollbarWidth="thin"
-      bg="teal.50">
-      <PageRenderer
-        loading={loading}
-        error={error}>
+    <Box maxH="100dvh" minH="100dvh" overflowY="auto" scrollbarWidth="thin" bg="teal.50">
+      <PageRenderer loading={loading} error={error}>
         {project && (
           <>
             <ProjectHeader id={id} />
@@ -29,16 +22,12 @@ function ProjectPage() {
               py="8"
               gap="28"
               alignItems="start"
-              flexDir={{ base: 'column', md: 'row' }}>
+              flexDir={{ base: 'column', md: 'row' }}
+            >
               <TasksSection projectId={id} />
-              <Flex
-                flexDir="column"
-                gap="3">
+              <Flex flexDir="column" gap="3">
                 <DocumentsSection projectId={id} />
-                <ParticipantsSection
-                  role={project.role}
-                  projectId={id}
-                />
+                <ParticipantsSection role={project.role} projectId={id} />
               </Flex>
             </Flex>
           </>

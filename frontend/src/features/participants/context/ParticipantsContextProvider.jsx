@@ -1,17 +1,11 @@
 import { useCallback, useReducer } from 'react';
 import ParticipantsContext from './ParticipantsContext';
-import {
-  participantsInitialState,
-  participantsReducer,
-} from './participantsReducer';
+import { participantsInitialState, participantsReducer } from './participantsReducer';
 import api from '@/utils/api';
 import { useNavigate } from 'react-router';
 
 function ParticipantsProvider({ children }) {
-  const [state, dispatch] = useReducer(
-    participantsReducer,
-    participantsInitialState,
-  );
+  const [state, dispatch] = useReducer(participantsReducer, participantsInitialState);
 
   const navigate = useNavigate();
 
@@ -78,7 +72,8 @@ function ParticipantsProvider({ children }) {
         fetchProjectParticipants,
         addParticipant,
         removeParticipant,
-      }}>
+      }}
+    >
       {children}
     </ParticipantsContext.Provider>
   );

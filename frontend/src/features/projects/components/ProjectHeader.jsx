@@ -18,28 +18,19 @@ function ProjectHeader({ id }) {
       py={{ base: 14, md: 8 }}
       bg="bg"
       flexDir={{ base: 'column', md: 'row' }}
-      justifyContent="space-between">
+      justifyContent="space-between"
+    >
       <Box pe="12">
         <Box maxW="2xl">
-          <Text
-            truncate
-            as="h1"
-            color="teal"
-            fontWeight="bold"
-            fontSize="2xl">
+          <Text truncate as="h1" color="teal" fontWeight="bold" fontSize="2xl">
             {project.name}
           </Text>
         </Box>
-        <Text
-          textWrap="wrap"
-          color="fg.muted">
+        <Text textWrap="wrap" color="fg.muted">
           {project.description}
         </Text>
       </Box>
-      <Flex
-        mt={{ base: '4', md: 0 }}
-        gap="4"
-        flexDir={{ base: 'column', md: 'row' }}>
+      <Flex mt={{ base: '4', md: 0 }} gap="4" flexDir={{ base: 'column', md: 'row' }}>
         <Flex gap="4">
           <CreateTaskModal projectId={id} />
           <AddParticipantModal projectId={id} />
@@ -53,7 +44,8 @@ function ProjectHeader({ id }) {
               onClick={async () => {
                 await deleteProject();
                 navigate('/');
-              }}>
+              }}
+            >
               Delete
             </Button>
           )}

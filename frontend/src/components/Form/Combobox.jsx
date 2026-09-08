@@ -21,9 +21,7 @@ const Combobox = ({ label, name, items, placeholder, required = true }) => {
   });
 
   return (
-    <Field.Root
-      required={required}
-      invalid={!!errors[name]}>
+    <Field.Root required={required} invalid={!!errors[name]}>
       <Field.Label>
         {label} <Field.RequiredIndicator />
       </Field.Label>
@@ -36,7 +34,8 @@ const Combobox = ({ label, name, items, placeholder, required = true }) => {
             value={field.value ? [field.value] : []}
             onValueChange={({ value }) => field.onChange(value[0] || '')}
             onInputValueChange={(e) => filter(e.inputValue)}
-            onInteractOutside={() => field.onBlur()}>
+            onInteractOutside={() => field.onBlur()}
+          >
             <ChakraCombobox.Control>
               <ChakraCombobox.Input placeholder={placeholder} />
               <ChakraCombobox.IndicatorGroup>
@@ -50,9 +49,7 @@ const Combobox = ({ label, name, items, placeholder, required = true }) => {
                 <ChakraCombobox.Content>
                   <ChakraCombobox.Empty>No results found</ChakraCombobox.Empty>
                   {collection.items.map((item) => (
-                    <ChakraCombobox.Item
-                      key={item.value}
-                      item={item}>
+                    <ChakraCombobox.Item key={item.value} item={item}>
                       {item.label}
                       <ChakraCombobox.ItemIndicator />
                     </ChakraCombobox.Item>

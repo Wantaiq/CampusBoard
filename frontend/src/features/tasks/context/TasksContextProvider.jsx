@@ -9,14 +9,7 @@ function TasksProvider({ children }) {
 
   const navigate = useNavigate();
 
-  const createTask = async ({
-    projectId,
-    name,
-    description,
-    status,
-    dueDate,
-    assigneeId,
-  }) => {
+  const createTask = async ({ projectId, name, description, status, dueDate, assigneeId }) => {
     if (!projectId) return;
     try {
       const response = await api({
@@ -115,7 +108,8 @@ function TasksProvider({ children }) {
         updateTask,
         deleteTask,
         createTask,
-      }}>
+      }}
+    >
       {children}
     </TasksContext.Provider>
   );

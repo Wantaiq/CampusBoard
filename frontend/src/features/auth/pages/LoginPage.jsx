@@ -18,11 +18,7 @@ function LoginPage() {
 
   return (
     <AbsoluteCenter>
-      <LoginForm
-        handleSubmit={handleSubmit}
-        processing={loadingLogin}
-        error={loginError}
-      />
+      <LoginForm handleSubmit={handleSubmit} processing={loadingLogin} error={loginError} />
     </AbsoluteCenter>
   );
 }
