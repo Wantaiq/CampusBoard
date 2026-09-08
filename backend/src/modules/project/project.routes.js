@@ -11,23 +11,13 @@ const projectSchema = require('./project.schema');
 const router = express.Router();
 
 router.use(authenticate);
-router.post(
-  '/',
-  validation(projectSchema.createProject),
-  projectController.createProject,
-);
+router.post('/', validation(projectSchema.createProject), projectController.createProject);
 
 router
   .route('/:projectId')
   .all(validation(null, projectSchema.projectParam))
-  .get(
-    authorizeProjectPermission(['owner', 'member']),
-    projectController.getProject,
-  )
-  .delete(
-    authorizeProjectPermission(['owner']),
-    projectController.deleteProject,
-  );
+  .get(authorizeProjectPermission(['owner', 'member']), projectController.getProject)
+  .delete(authorizeProjectPermission(['owner']), projectController.deleteProject);
 
 router.use('/:projectId/participants', participantRoutes);
 router.use('/:projectId/tasks', taskRoutes);

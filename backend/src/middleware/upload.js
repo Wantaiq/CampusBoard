@@ -2,7 +2,7 @@ const multer = require('multer');
 const path = require('path');
 const BadRequestError = require('../shared/errors/BadRequestError');
 
-const fileFilter = (req, file, cb) => {
+const fileFilter = (_req, file, cb) => {
   const ext = path.extname(file.originalname).toLowerCase();
 
   if (file.mimetype === 'application/pdf' && ext === '.pdf') {

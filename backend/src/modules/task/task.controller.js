@@ -6,14 +6,7 @@ const createTask = tryCatch(async (req, res) => {
   const { projectId } = req.params;
   const { name, description, dueDate, status, assigneeId } = req.body;
 
-  const task = await taskService.save(
-    name,
-    description,
-    dueDate,
-    projectId,
-    assigneeId,
-    status,
-  );
+  const task = await taskService.save(name, description, dueDate, projectId, assigneeId, status);
 
   res.status(201).json(new AppResponse(201, task));
 });

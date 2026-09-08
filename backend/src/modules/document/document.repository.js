@@ -1,16 +1,14 @@
 const queryHandler = require('../../shared/database/queryHandler');
 
-const save = queryHandler(
-  async (db, { projectId, documentName, documentPath }) => {
-    const [result] = await db.query(
-      `INSERT INTO ccl_documents (project_id, name, url)
+const save = queryHandler(async (db, { projectId, documentName, documentPath }) => {
+  const [result] = await db.query(
+    `INSERT INTO ccl_documents (project_id, name, url)
     VALUES (?, ?, ?)`,
-      [projectId, documentName, documentPath],
-    );
+    [projectId, documentName, documentPath],
+  );
 
-    return result;
-  },
-);
+  return result;
+});
 
 const remove = queryHandler(async (db, { documentId, projectId }) => {
   const [result] = await db.query(

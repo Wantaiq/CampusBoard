@@ -5,7 +5,9 @@ const JoiBase = Joi.defaults((schema) =>
     .options({
       abortEarly: true,
       stripUnknown: true,
-      errors: { wrap: { label: false, array: false } },
+      errors: {
+        wrap: { label: false, array: false },
+      },
     })
     .messages({
       'string.base': '{{#label}} needs to a text',

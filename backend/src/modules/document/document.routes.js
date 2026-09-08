@@ -5,7 +5,9 @@ const upload = require('../../middleware/upload');
 const validation = require('../../middleware/validation');
 const documentSchema = require('./document.schema');
 const projectSchema = require('../project/project.schema');
-const router = express.Router({ mergeParams: true });
+const router = express.Router({
+  mergeParams: true,
+});
 
 router
   .route('/')

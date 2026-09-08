@@ -1,5 +1,5 @@
 function validation(body, params) {
-  return async function (req, res, next) {
+  return async function (req, _res, next) {
     try {
       if (body) {
         const bodyValues = await body.validateAsync(req.body || {});

@@ -12,10 +12,10 @@ const save = queryHandler(
 );
 
 const remove = queryHandler(async (db, { taskId, projectId }) => {
-  const [result] = await db.query(
-    'DELETE FROM ccl_tasks WHERE id = ? AND project_id = ?',
-    [taskId, projectId],
-  );
+  const [result] = await db.query('DELETE FROM ccl_tasks WHERE id = ? AND project_id = ?', [
+    taskId,
+    projectId,
+  ]);
 
   return result;
 });
@@ -45,10 +45,7 @@ const getAllProjectTasks = queryHandler(async (db, { projectId }) => {
 });
 
 const update = queryHandler(
-  async (
-    db,
-    { name, description, dueDate, status, assigneeId, taskId, projectId },
-  ) => {
+  async (db, { name, description, dueDate, status, assigneeId, taskId, projectId }) => {
     const [result] = await db.query(
       'UPDATE ccl_tasks SET name = ?, description = ?, due_date = ?, status = ?, assignee_id = ? WHERE id = ? AND project_id = ?',
       [name, description, dueDate, status, assigneeId, taskId, projectId],

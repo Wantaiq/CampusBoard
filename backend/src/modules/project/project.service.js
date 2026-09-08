@@ -2,8 +2,6 @@ const InternalError = require('../../shared/errors/InternalError');
 const ForbiddenError = require('../../shared/errors/ForbiddenError');
 const NotFoundError = require('../../shared/errors/NotFoundError');
 const projectRepository = require('./project.repository');
-const taskService = require('../task/task.service');
-const participantService = require('../participant/participant.service');
 const participantRepository = require('../participant/participant.repository');
 const db = require('../../shared/database/connection');
 

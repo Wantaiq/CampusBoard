@@ -29,7 +29,10 @@ const save = async (userId, projectId, role) => {
     throw new InternalError('Could not add participant');
   }
 
-  return participantRepository.getById(db, { userId, projectId });
+  return participantRepository.getById(db, {
+    userId,
+    projectId,
+  });
 };
 
 const remove = async (userId, projectId) => {

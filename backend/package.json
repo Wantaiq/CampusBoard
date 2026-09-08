@@ -5,7 +5,8 @@
   "main": "app.js",
   "scripts": {
     "start:dev": "node app.js",
-    "start:prod": "set NODE_ENV=production&& node app.js"
+    "start:prod": "set NODE_ENV=production&& node app.js",
+    "format": "prettier --write ."
   },
   "keywords": [],
   "author": "",
@@ -22,5 +23,8 @@
     "jsonwebtoken": "9.0.3",
     "multer": "2.1.1",
     "mysql2": "3.22.5"
+  },
+  "devDependencies": {
+    "prettier": "3.9.6"
   }
 }

@@ -21,19 +21,17 @@ const remove = queryHandler(async (db, { userId, projectId }) => {
   return result;
 });
 
-const updateRole = queryHandler(
-  async (db, { userId, projectId, role = 'member' }) => {
-    const [result] = await db.query(
-      `UPDATE ccl_project_participants
+const updateRole = queryHandler(async (db, { userId, projectId, role = 'member' }) => {
+  const [result] = await db.query(
+    `UPDATE ccl_project_participants
       SET role = ?
       WHERE user_id = ?
       AND project_id = ?`,
-      [role, userId, projectId],
-    );
+    [role, userId, projectId],
+  );
 
-    return result;
-  },
-);
+  return result;
+});
 
 const getById = queryHandler(async (db, { userId, projectId }) => {
   const [rows] = await db.query(

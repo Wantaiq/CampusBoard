@@ -9,4 +9,7 @@ const updateParticipantRole = JoiBase.object({
   role: JoiBase.string().trim().min(3).label('Role ').valid('member'),
 });
 
-module.exports = { addParticipant, updateParticipantRole };
+module.exports = {
+  addParticipant,
+  updateParticipantRole,
+};

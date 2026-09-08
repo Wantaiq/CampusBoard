@@ -4,7 +4,9 @@ const authorizeProjectPermission = require('../../middleware/authorize');
 const projectSchema = require('../project/project.schema');
 const validation = require('../../middleware/validation');
 const taskSchema = require('./task.schema');
-const router = express.Router({ mergeParams: true });
+const router = express.Router({
+  mergeParams: true,
+});
 
 router
   .route('/')

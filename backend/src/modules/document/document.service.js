@@ -16,10 +16,7 @@ const save = async (projectId, file) => {
     });
 
     if (existingDocument) {
-      throw new ConflictError(
-        'File',
-        `${documentName} is already in the project`,
-      );
+      throw new ConflictError('File', `${documentName} is already in the project`);
     }
 
     const result = await documentRepository.save(db, {
@@ -80,7 +77,9 @@ const findById = async (documentId, projectId) => {
 };
 
 const list = async (projectId) => {
-  return documentRepository.list(db, { projectId });
+  return documentRepository.list(db, {
+    projectId,
+  });
 };
 
 module.exports = { save, remove, findById, list };

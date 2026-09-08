@@ -5,7 +5,10 @@ const authenticate = (req, res, next) => {
     const token = req.cookies?.token;
 
     const decodedPayload = authService.authenticate(token);
-    req.user = { id: decodedPayload.id, username: decodedPayload.username };
+    req.user = {
+      id: decodedPayload.id,
+      username: decodedPayload.username,
+    };
 
     next();
   } catch (err) {

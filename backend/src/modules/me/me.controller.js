@@ -21,4 +21,8 @@ const getMyTasks = tryCatch(async (req, res) => {
   res.status(200).json(new AppResponse(200, userTasks));
 });
 
-module.exports = { getMe, getMyProjects, getMyTasks };
+module.exports = {
+  getMe,
+  getMyProjects,
+  getMyTasks,
+};
