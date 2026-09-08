@@ -6,29 +6,17 @@ function ParticipantCard({ participant, role }) {
 
   return (
     <Flex flexDir="column">
-      <Flex
-        mb="2"
-        gap="2"
-        justifyContent="space-between"
-        alignItems="start">
+      <Flex mb="2" gap="2" justifyContent="space-between" alignItems="start">
         <Box>
           <Text>{participant.username}</Text>
         </Box>
         {role === 'owner' && participant.role !== 'owner' && (
-          <Button
-            colorPalette="red"
-            size="xs"
-            variant="subtle"
-            onClick={() => removeParticipant()}>
+          <Button colorPalette="red" size="xs" variant="subtle" onClick={() => removeParticipant()}>
             Remove
           </Button>
         )}
       </Flex>
-      <Badge
-        width="fit-content"
-        size="md"
-        fontWeight="bold"
-        colorPalette="gray">
+      <Badge width="fit-content" size="md" fontWeight="bold" colorPalette="gray">
         Role: {participant.role}
       </Badge>
     </Flex>

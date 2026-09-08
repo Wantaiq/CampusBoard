@@ -1,8 +1,7 @@
 import useProjectsStore from './useProjectsStore';
 
 function useProjects() {
-  const { projects, loading, error, createProject, fetchMyProjects } =
-    useProjectsStore();
+  const { projects, loading, error, createProject, fetchMyProjects } = useProjectsStore();
 
   return {
     projects,

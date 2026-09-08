@@ -6,14 +6,8 @@ function ErrorMessage({ message }) {
   }
 
   return (
-    <Box
-      bg="bg.error"
-      py="2"
-      px="4"
-      borderRadius="lg">
-      <Text
-        color="fg"
-        fontWeight="semibold">
+    <Box bg="bg.error" py="2" px="4" borderRadius="lg">
+      <Text color="fg" fontWeight="semibold">
         {message}
       </Text>
     </Box>

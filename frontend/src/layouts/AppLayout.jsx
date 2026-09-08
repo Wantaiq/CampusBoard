@@ -19,11 +19,10 @@ function AppLayout() {
       templateColumns={{
         base: '1fr',
         md: '240px 1fr',
-      }}>
+      }}
+    >
       <GridItem>
-        <PageRenderer
-          loading={loading}
-          error={error}>
+        <PageRenderer loading={loading} error={error}>
           <Sidebar projects={projects} />
         </PageRenderer>
       </GridItem>

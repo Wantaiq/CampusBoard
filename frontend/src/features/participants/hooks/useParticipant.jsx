@@ -1,12 +1,9 @@
 import useParticipantsStore from './useParticipantsStore';
 
 function useParticipant(id) {
-  const { participants, loading, error, removeParticipant } =
-    useParticipantsStore();
+  const { participants, loading, error, removeParticipant } = useParticipantsStore();
 
-  const participant = participants.find(
-    (participant) => participant.user_id === parseInt(id),
-  );
+  const participant = participants.find((participant) => participant.user_id === parseInt(id));
 
   return {
     participant,

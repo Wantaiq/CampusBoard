@@ -2,13 +2,8 @@ import useParticipantsStore from './useParticipantsStore';
 import { useCallback } from 'react';
 
 function useParticipants(projectId) {
-  const {
-    fetchProjectParticipants,
-    participants,
-    loading,
-    error,
-    addParticipant,
-  } = useParticipantsStore();
+  const { fetchProjectParticipants, participants, loading, error, addParticipant } =
+    useParticipantsStore();
 
   const fetchParticipants = useCallback(() => {
     fetchProjectParticipants({ projectId });

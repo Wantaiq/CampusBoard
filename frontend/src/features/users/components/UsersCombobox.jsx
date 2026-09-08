@@ -1,10 +1,4 @@
-import {
-  Combobox,
-  Field,
-  Portal,
-  Spinner,
-  createListCollection,
-} from '@chakra-ui/react';
+import { Combobox, Field, Portal, Spinner, createListCollection } from '@chakra-ui/react';
 import { Controller, useFormContext } from 'react-hook-form';
 import { useMemo } from 'react';
 import useUsers from '../hooks/useUsers';
@@ -31,9 +25,7 @@ function UsersCombobox({ name, label, required = true }) {
       name={name}
       control={control}
       render={({ field }) => (
-        <Field.Root
-          invalid={!!errors.userId}
-          required={required}>
+        <Field.Root invalid={!!errors.userId} required={required}>
           <Field.Label>
             {label} <Field.RequiredIndicator />
           </Field.Label>
@@ -46,7 +38,8 @@ function UsersCombobox({ name, label, required = true }) {
             }}
             onInputValueChange={({ inputValue }) => {
               searchByUsernameFragment(inputValue);
-            }}>
+            }}
+          >
             <Combobox.Control>
               <Combobox.Input placeholder="Search..." />
             </Combobox.Control>
@@ -55,15 +48,10 @@ function UsersCombobox({ name, label, required = true }) {
               <Combobox.Positioner>
                 <Combobox.Content>
                   {loading ? (
-                    <Spinner
-                      size="sm"
-                      mx="auto"
-                    />
+                    <Spinner size="sm" mx="auto" />
                   ) : (
                     collection.items.map((user) => (
-                      <Combobox.Item
-                        key={user.id}
-                        item={user}>
+                      <Combobox.Item key={user.id} item={user}>
                         {user.username}
                         <Combobox.ItemIndicator />
                       </Combobox.Item>

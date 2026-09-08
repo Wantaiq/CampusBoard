@@ -5,9 +5,7 @@ import useDocuments from '../hooks/useDocuments';
 function AddDocumentModal({ projectId }) {
   const { addDocument } = useDocuments(projectId);
   return (
-    <Dialog.Root
-      placement="center"
-      motionPreset="slide-in-top">
+    <Dialog.Root placement="center" motionPreset="slide-in-top">
       <Dialog.Trigger asChild>
         <Button variant="outline">Add document +</Button>
       </Dialog.Trigger>

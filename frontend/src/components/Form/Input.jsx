@@ -10,18 +10,12 @@ function Input({ name, label, required = true, type = 'text' }) {
   } = useFormContext();
 
   return (
-    <Field.Root
-      invalid={!!errors[name]}
-      required={required}>
+    <Field.Root invalid={!!errors[name]} required={required}>
       <Field.Label htmlFor={id}>
         {label}
         <Field.RequiredIndicator />
       </Field.Label>
-      <ChakraInput
-        {...register(name)}
-        id={id}
-        type={type}
-      />
+      <ChakraInput {...register(name)} id={id} type={type} />
       <Field.ErrorText>
         <Field.ErrorIcon />
         {errors[name]?.message}

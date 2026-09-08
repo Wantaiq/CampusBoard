@@ -98,7 +98,8 @@ function AuthProvider({ children }) {
         getActiveUser,
         authLoading,
         authError,
-      }}>
+      }}
+    >
       {children}
     </AuthContext.Provider>
   );

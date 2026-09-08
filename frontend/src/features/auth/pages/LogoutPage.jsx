@@ -18,12 +18,7 @@ function LogoutPage() {
     );
   }
 
-  return (
-    <Navigate
-      to="/auth/login"
-      replace
-    />
-  );
+  return <Navigate to="/auth/login" replace />;
 }
 
 export default LogoutPage;

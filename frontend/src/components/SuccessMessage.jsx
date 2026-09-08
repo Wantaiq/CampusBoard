@@ -6,14 +6,8 @@ function SuccessMessage({ message }) {
   }
 
   return (
-    <Box
-      bg="bg.success"
-      py="2"
-      px="4"
-      borderRadius="lg">
-      <Text
-        color="fg"
-        fontWeight="semibold">
+    <Box bg="bg.success" py="2" px="4" borderRadius="lg">
+      <Text color="fg" fontWeight="semibold">
         {message}
       </Text>
     </Box>

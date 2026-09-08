@@ -33,9 +33,7 @@ function documentsReducer(state, action) {
       return {
         ...state,
         loading: false,
-        documents: state.documents.filter(
-          (document) => document.id !== action.payload,
-        ),
+        documents: state.documents.filter((document) => document.id !== action.payload),
         error: null,
       };
 

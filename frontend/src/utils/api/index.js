@@ -22,10 +22,7 @@ async function api({
 
   if (!response.ok) {
     const error = await response.json();
-    throw new ApiError(
-      error.details || 'Something went wrong',
-      error.statusCode,
-    );
+    throw new ApiError(error.details || 'Something went wrong', error.statusCode);
   }
 
   const responseContentType = response.headers.get('content-type');

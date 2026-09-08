@@ -5,25 +5,15 @@ function DocumentCard({ document }) {
   const { viewDocument, removeDocument } = useDocument(document.id);
 
   return (
-    <Flex
-      gap="4"
-      justifyContent="space-between"
-      alignItems="center">
+    <Flex gap="4" justifyContent="space-between" alignItems="center">
       <Box>
         <Text>{document.name}</Text>
       </Box>
       <Flex gap="3">
-        <Button
-          size="xs"
-          variant="subtle"
-          onClick={() => viewDocument()}>
+        <Button size="xs" variant="subtle" onClick={() => viewDocument()}>
           View
         </Button>
-        <Button
-          colorPalette="red"
-          size="xs"
-          variant="subtle"
-          onClick={() => removeDocument()}>
+        <Button colorPalette="red" size="xs" variant="subtle" onClick={() => removeDocument()}>
           Remove
         </Button>
       </Flex>

@@ -6,9 +6,7 @@ function AddParticipantModal({ projectId }) {
   const { addParticipant } = useParticipants(projectId);
 
   return (
-    <Dialog.Root
-      placement="center"
-      motionPreset="slide-in-top">
+    <Dialog.Root placement="center" motionPreset="slide-in-top">
       <Dialog.Trigger asChild>
         <Button variant="outline">Add member +</Button>
       </Dialog.Trigger>

@@ -27,20 +27,16 @@ function ParticipantForm({ onSubmit }) {
     }
   };
   return (
-    <Form
-      onSubmit={handleSubmit}
-      schema={schema}
-      defaultValues={{ upload: null }}>
-      <Stack
-        gap="4"
-        w="full">
+    <Form onSubmit={handleSubmit} schema={schema} defaultValues={{ upload: null }}>
+      <Stack gap="4" w="full">
         <PdfUpload name="document" />
         <Button
           fontWeight="bold"
           size="lg"
           type="submit"
           loading={processing}
-          disabled={processing}>
+          disabled={processing}
+        >
           Submit
         </Button>
         <ErrorMessage message={error} />

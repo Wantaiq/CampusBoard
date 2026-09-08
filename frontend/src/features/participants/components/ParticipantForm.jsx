@@ -28,22 +28,16 @@ function ParticipantForm({ onSubmit }) {
     }
   };
   return (
-    <Form
-      onSubmit={handleSubmit}
-      schema={schema}>
-      <Stack
-        gap="4"
-        w="full">
-        <UsersCombobox
-          label="Select user"
-          name="userId"
-        />
+    <Form onSubmit={handleSubmit} schema={schema}>
+      <Stack gap="4" w="full">
+        <UsersCombobox label="Select user" name="userId" />
         <Button
           fontWeight="bold"
           size="lg"
           type="submit"
           loading={processing}
-          disabled={processing}>
+          disabled={processing}
+        >
           Submit
         </Button>
         <ErrorMessage message={error} />

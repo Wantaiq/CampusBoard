@@ -14,17 +14,15 @@ function CreateTaskModal({ projectId }) {
       placement="center"
       motionPreset="slide-in-top"
       open={open}
-      onOpenChange={(e) => setOpen(e.open)}>
+      onOpenChange={(e) => setOpen(e.open)}
+    >
       <Dialog.Trigger asChild>
         <Button>Create task +</Button>
       </Dialog.Trigger>
       <Portal>
         <Dialog.Backdrop />
         <Dialog.Positioner>
-          <Dialog.Content
-            maxH="4xl"
-            overflowY="auto"
-            scrollbarWidth="thin">
+          <Dialog.Content maxH="4xl" overflowY="auto" scrollbarWidth="thin">
             <Dialog.Header>
               <Dialog.Title fontSize="2xl">New task</Dialog.Title>
             </Dialog.Header>

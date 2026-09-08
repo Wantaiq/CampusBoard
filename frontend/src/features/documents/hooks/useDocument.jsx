@@ -7,8 +7,7 @@ function useDocument(id) {
 
   return {
     document,
-    removeDocument: () =>
-      removeDocument({ projectId: document.project_id, id }),
+    removeDocument: () => removeDocument({ projectId: document.project_id, id }),
     viewDocument: () => {
       viewDocument({ projectId: document.project_id, id });
     },

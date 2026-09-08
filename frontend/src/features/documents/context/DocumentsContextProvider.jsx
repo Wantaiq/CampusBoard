@@ -97,7 +97,8 @@ function DocumentsContextProvider({ children }) {
         removeDocument,
         viewDocument,
         fetchProjectDocuments,
-      }}>
+      }}
+    >
       {children}
     </DocumentsContext.Provider>
   );

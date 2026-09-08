@@ -12,7 +12,8 @@ function CreateProjectModal() {
       placement="center"
       motionPreset="slide-in-top"
       open={open}
-      onOpenChange={(e) => setOpen(e.open)}>
+      onOpenChange={(e) => setOpen(e.open)}
+    >
       <Dialog.Trigger asChild>
         <Button w="full">Create project +</Button>
       </Dialog.Trigger>

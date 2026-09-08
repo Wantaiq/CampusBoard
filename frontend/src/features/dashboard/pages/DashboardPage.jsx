@@ -9,14 +9,8 @@ function DashboardPage() {
   if (newUser) {
     return (
       <AbsoluteCenter>
-        <Flex
-          flexDir="column"
-          gap="6"
-          alignItems="start">
-          <Text
-            as="h1"
-            fontSize="2xl"
-            fontWeight="semibold">
+        <Flex flexDir="column" gap="6" alignItems="start">
+          <Text as="h1" fontSize="2xl" fontWeight="semibold">
             Welcome! Start with creating your first project!
           </Text>
           <Box mx="auto">
@@ -29,14 +23,8 @@ function DashboardPage() {
 
   return (
     <AbsoluteCenter>
-      <Flex
-        flexDir="column"
-        gap="6"
-        alignItems="start">
-        <Text
-          as="h1"
-          fontSize="2xl"
-          fontWeight="semibold">
+      <Flex flexDir="column" gap="6" alignItems="start">
+        <Text as="h1" fontSize="2xl" fontWeight="semibold">
           Continue with starting a new project
         </Text>
         <Box mx="auto">
