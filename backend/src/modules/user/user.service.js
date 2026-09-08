@@ -1,6 +1,5 @@
 const ConflictError = require('../../shared/errors/ConflictError');
 const NotFoundError = require('../../shared/errors/NotFoundError');
-const BadRequestError = require('../../shared/errors/BadRequestError');
 const db = require('../../shared/database/connection');
 const userRepository = require('./user.repository');
 
@@ -14,7 +13,9 @@ const viewOneById = async (id) => {
 };
 
 const viewUserByUsernameWithPassword = async (username) => {
-  const user = await userRepository.findOneByUsername(db, { username });
+  const user = await userRepository.findOneByUsername(db, {
+    username,
+  });
   if (!user) {
     throw new NotFoundError('User', 'User does not exist');
   }
@@ -23,13 +24,18 @@ const viewUserByUsernameWithPassword = async (username) => {
 };
 
 const saveUser = async (username, password) => {
-  const existingUser = await userRepository.findOneByUsername(db, { username });
+  const existingUser = await userRepository.findOneByUsername(db, {
+    username,
+  });
 
   if (existingUser) {
     throw new ConflictError('User', 'Username already in use');
   }
 
-  const result = await userRepository.save(db, { username, password });
+  const result = await userRepository.save(db, {
+    username,
+    password,
+  });
 
   const user = await userRepository.findOneById(db, { id: result.insertId });
 

@@ -10,9 +10,7 @@ const save = queryHandler(async (db, { name, description, createdById }) => {
 });
 
 const remove = queryHandler(async (db, { projectId }) => {
-  const [result] = await db.query('DELETE FROM ccl_projects WHERE id = ?', [
-    projectId,
-  ]);
+  const [result] = await db.query('DELETE FROM ccl_projects WHERE id = ?', [projectId]);
 
   return result;
 });
@@ -46,4 +44,9 @@ const viewProject = queryHandler(async (db, { projectId, userId }) => {
   return rows[0] || null;
 });
 
-module.exports = { save, remove, listUserProjects, viewProject };
+module.exports = {
+  save,
+  remove,
+  listUserProjects,
+  viewProject,
+};

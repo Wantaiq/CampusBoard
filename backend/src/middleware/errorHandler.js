@@ -2,7 +2,7 @@ const multer = require('multer');
 const AppError = require('../shared/errors/AppError');
 const { ValidationError } = require('joi');
 
-const errorHandler = (err, req, res, next) => {
+const errorHandler = (err, _req, res, _next) => {
   console.log(err);
 
   if (err instanceof AppError) {

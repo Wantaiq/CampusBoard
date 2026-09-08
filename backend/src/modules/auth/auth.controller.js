@@ -13,26 +13,20 @@ const sendTokenCookie = (res, token) => {
 };
 
 const register = tryCatch(async (req, res) => {
-  const { id, username, token } = await authService.register(
-    req.body.username,
-    req.body.password,
-  );
+  const { id, username, token } = await authService.register(req.body.username, req.body.password);
 
   sendTokenCookie(res, token);
   res.status(201).json(new AppResponse(201, { id, username }));
 });
 
 const login = tryCatch(async (req, res) => {
-  const { id, username, token } = await authService.login(
-    req.body.username,
-    req.body.password,
-  );
+  const { id, username, token } = await authService.login(req.body.username, req.body.password);
 
   sendTokenCookie(res, token);
   res.status(200).json(new AppResponse(200, { id, username }));
 });
 
-const logout = tryCatch(async (req, res) => {
+const logout = tryCatch(async (_req, res) => {
   res.clearCookie('token');
   res.status(200).json(new AppResponse(200));
 });

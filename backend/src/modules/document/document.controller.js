@@ -28,7 +28,9 @@ const getDocument = tryCatch(async (req, res) => {
 
   res.type('pdf');
   res.setHeader('Content-Disposition', `inline; filename= ${name}`);
-  res.sendFile(url, { root: path.join(__dirname, '..', '..', '..') });
+  res.sendFile(url, {
+    root: path.join(__dirname, '..', '..', '..'),
+  });
 });
 
 const getDocuments = tryCatch(async (req, res) => {
@@ -39,4 +41,9 @@ const getDocuments = tryCatch(async (req, res) => {
   res.status(200).json(new AppResponse(200, documents));
 });
 
-module.exports = { createDocument, deleteDocument, getDocument, getDocuments };
+module.exports = {
+  createDocument,
+  deleteDocument,
+  getDocument,
+  getDocuments,
+};

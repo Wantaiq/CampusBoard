@@ -1,6 +1,5 @@
 const env = require('../../config/env');
 const mysql = require('mysql2/promise');
-const InternalError = require('../errors/InternalError');
 
 const db = mysql.createPool({
   host: env.database.host,

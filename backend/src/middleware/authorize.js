@@ -1,7 +1,7 @@
 const projectService = require('../modules/project/project.service');
 
 function authorizeProjectPermission(allowedRoles) {
-  return async (req, res, next) => {
+  return async (req, _res, next) => {
     try {
       const { id: userId } = req.user;
       const { projectId } = req.params;

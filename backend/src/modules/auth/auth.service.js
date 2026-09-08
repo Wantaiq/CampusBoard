@@ -65,7 +65,11 @@ const register = async (username, password) => {
   const user = await userService.saveUser(username, passwordHash);
   const token = signJwt(user.id, user.username);
 
-  return { id: user.id, username: user.username, token: token };
+  return {
+    id: user.id,
+    username: user.username,
+    token: token,
+  };
 };
 
 const login = async (username, password) => {
@@ -73,10 +77,19 @@ const login = async (username, password) => {
     const user = await validateUser(username, password);
     const token = signJwt(user.id, user.username);
 
-    return { id: user.id, username: user.username, token: token };
+    return {
+      id: user.id,
+      username: user.username,
+      token: token,
+    };
   } catch (err) {
     throw new UnauthorizedError('Invalid username or password.');
   }
 };
 
-module.exports = { register, login, verifyJwt, authenticate };
+module.exports = {
+  register,
+  login,
+  verifyJwt,
+  authenticate,
+};
