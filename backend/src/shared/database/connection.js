@@ -1,7 +1,7 @@
 const env = require('../../config/env');
-const mysql = require('mysql2/promise');
+const { Pool } = require('pg');
 
-const db = mysql.createPool({
+const db = new Pool({
   host: env.database.host,
   port: env.database.port,
   user: env.database.user,

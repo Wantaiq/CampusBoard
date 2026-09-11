@@ -25,7 +25,7 @@ const save = async (userId, projectId, role) => {
     role,
   });
 
-  if (result.affectedRows === 0) {
+  if (result.rowcount) {
     throw new InternalError('Could not add participant');
   }
 
@@ -54,7 +54,7 @@ const remove = async (userId, projectId) => {
     projectId,
   });
 
-  if (result.affectedRows === 0) {
+  if (result.rowCount === 0) {
     throw new NotFoundError('Participant');
   }
 };
@@ -83,7 +83,7 @@ const updateRole = async (userId, projectId, role) => {
     role,
   });
 
-  if (result.affectedRows === 0) {
+  if (result.rowCount === 0) {
     throw new NotFoundError('Participant');
   }
 };
