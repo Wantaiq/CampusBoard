@@ -6,9 +6,9 @@ const participantRepository = require('../participant/participant.repository');
 const db = require('../../shared/database/connection');
 
 const save = async (name, description, createdById) => {
-  const connection = await db.getConnection();
+  const connection = await db.connect();
   try {
-    await connection.beginTransaction();
+    await connection.query('BEGIN');
     const result = await projectRepository.save(connection, {
       name,
       description,
@@ -17,20 +17,15 @@ const save = async (name, description, createdById) => {
 
     await participantRepository.add(connection, {
       userId: createdById,
-      projectId: result.insertId,
+      projectId: result.id,
       role: 'owner',
     });
 
-    const createdProject = await projectRepository.viewProject(connection, {
-      projectId: result.insertId,
-      userId: createdById,
-    });
+    await connection.query('COMMIT');
 
-    await connection.commit();
-
-    return createdProject;
+    return projectRepository.viewProject(db, { projectId: result.id, userId: createdById });
   } catch (error) {
-    await connection.rollback();
+    await connection.query('ROLLBACK');
     throw error;
   } finally {
     connection.release();
@@ -40,7 +35,7 @@ const save = async (name, description, createdById) => {
 const remove = async (projectId) => {
   const result = await projectRepository.remove(db, { projectId });
 
-  if (result.affectedRows === 0) {
+  if (result.rowCount === 0) {
     throw new InternalError('Project could not be deleted');
   }
 

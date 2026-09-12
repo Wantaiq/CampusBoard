@@ -4,8 +4,6 @@ const NotFoundError = require('../../shared/errors/NotFoundError');
 const db = require('../../shared/database/connection');
 
 const save = async (name, description, dueDate, projectId, assigneeId, status = 'To Do') => {
-  const participant = await participantService.view(assigneeId, projectId);
-
   const result = await taskRepository.save(db, {
     name,
     description,
@@ -16,7 +14,7 @@ const save = async (name, description, dueDate, projectId, assigneeId, status = 
   });
 
   return taskRepository.getById(db, {
-    taskId: result.insertId,
+    taskId: result.id,
     projectId,
   });
 };
@@ -27,7 +25,7 @@ const remove = async (taskId, projectId) => {
     projectId,
   });
 
-  if (result.affectedRows === 0) {
+  if (result.rowCount === 0) {
     throw new NotFoundError('Task');
   }
 };
@@ -58,8 +56,6 @@ const update = async (
   assigneeId,
   status = 'To Do',
 ) => {
-  const participant = await participantService.view(assigneeId, projectId);
-
   const result = await taskRepository.update(db, {
     name,
     description,
@@ -70,14 +66,14 @@ const update = async (
     projectId,
   });
 
+  if (result.rowCount === 0) {
+    throw new NotFoundError('Task');
+  }
+
   return taskRepository.getById(db, {
     taskId,
     projectId,
   });
-
-  if (result.affectedRows === 0) {
-    throw new NotFoundError('Task');
-  }
 };
 
 const listAssigneeTasks = async (assigneeId) => {

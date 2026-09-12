@@ -25,16 +25,7 @@ const save = async (projectId, file) => {
       documentPath,
     });
 
-    if (result.affectRows === 0) {
-      throw new InternalError('Could not save document');
-    }
-
-    const { url, ...rest } = await documentRepository.findById(db, {
-      documentId: result.insertId,
-      projectId,
-    });
-
-    return rest;
+    return result;
   } catch (error) {
     await fs.unlink(documentPath);
     throw error;
@@ -56,7 +47,7 @@ const remove = async (documentId, projectId) => {
     projectId,
   });
 
-  if (result.affectedRows === 0) {
+  if (result.rowCount === 0) {
     throw new NotFoundError('Document');
   }
 

@@ -32,12 +32,10 @@ const saveUser = async (username, password) => {
     throw new ConflictError('User', 'Username already in use');
   }
 
-  const result = await userRepository.save(db, {
+  const user = await userRepository.save(db, {
     username,
     password,
   });
-
-  const user = await userRepository.findOneById(db, { id: result.insertId });
 
   return user;
 };

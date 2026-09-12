@@ -1,6 +1,6 @@
 const authService = require('../modules/auth/auth.service');
 
-const authenticate = (req, res, next) => {
+const authenticate = (req, _res, next) => {
   try {
     const token = req.cookies?.token;
 
